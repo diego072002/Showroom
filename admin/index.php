@@ -64,8 +64,8 @@ if (!empty($_SESSION['active'])) {
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
                         <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block bg-login-image">
-                                <img class="img-thumbnail" src="assets/img/logo.png" alt="">
+                            <div class="col-lg-6 ">
+                                <img class="img-thumbnail" src="../assets/img/MARCA.jpg" alt="">
                             </div>
                             <div class="col-lg-6">
                                 <div class="p-5">

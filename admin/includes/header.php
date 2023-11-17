@@ -38,15 +38,16 @@ if (empty($_SESSION['id'])) {
             <!-- Divider -->
             <hr class="sidebar-divider my-4">                      
             <!-- Nav Item - Tables -->
-            <li class="nav-item my-3">
-                <a class="nav-link" href="categorias.php">
-                    <i class="fas fa-tag"></i>
-                    <span>Categorias</span></a>
-            </li>
+            
             <li class="nav-item my-3">
                 <a class="nav-link" href="productos.php">
                     <i class="fas fa-list"></i>
                     <span>Productos</span></a>
+            </li>
+            <li class="nav-item my-3">
+                <a class="nav-link" href="categorias.php">
+                    <i class="fas fa-tag"></i>
+                    <span>Categorias</span></a>
             </li>
             <li class="nav-item my-3">
                 <a class="nav-link" href="Usuarios.php">
