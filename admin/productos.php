@@ -42,6 +42,7 @@ include("includes/header.php"); ?>
                         <th>Cantidad</th>
                         <th>Categoria</th>
                         <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -59,6 +60,11 @@ include("includes/header.php"); ?>
                             <td>
                                 <form method="post" action="eliminar.php?accion=pro&id=<?php echo $data['id']; ?>" class="d-inline eliminar">
                                     <button class="btn btn-danger" type="submit">Eliminar</button>
+                                </form>
+                            </td>
+                            <td>
+                                <form method="post" action="modificar.php?accion=pro&id=<?php echo $data['id']; ?>" class="d-inline">
+                                    <button class="btn btn-warning" type="submit">Modificar</button>
                                 </form>
                             </td>
                         </tr>

@@ -52,7 +52,7 @@ if (empty($_SESSION['id'])) {
             <li class="nav-item my-3">
                 <a class="nav-link" href="Usuarios.php">
                     <i class="fas fa-user"></i>
-                    <span>Usuarios</span></a>
+                    <span>Usuario</span></a>
             </li>
 
             <!-- Divider -->
