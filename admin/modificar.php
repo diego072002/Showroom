@@ -7,7 +7,6 @@ if (isset($_GET['id'])) {
     $result = mysqli_query($conexion, $query);
     if (mysqli_num_rows($result) == 1) {
         $row = mysqli_fetch_array($result);
-
         $nombre = $row['nombre'];
         $descripcion = $row['descripcion'];
         $cantidad = $row['cantidad'];
@@ -34,9 +33,16 @@ if (isset($_POST['update'])) {
     $destino = "../assets/img/" . $foto;
     $query = "UPDATE productos set nombre = '$nombre', descripcion = '$descripcion',precio_normal = '$p_normal',precio_rebajado = '$p_rebajado', cantidad= '$cantidad', imagen = '$foto', id_categoria='$categoria'  WHERE id=$id";
     mysqli_query($conexion, $query);
-    $_SESSION['message'] = 'Task Updated Successfully';
-    $_SESSION['message_type'] = 'warning';
-    header('Location: productos.php');
+    if ($query) {
+        if (move_uploaded_file($tmpname, $destino)) {
+            $_SESSION['message'] = 'Task Updated Successfully';
+              header('Location: productos.php');
+        }
+    }
+
+
+
+    
 
 }
 
