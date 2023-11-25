@@ -26,7 +26,7 @@ if (isset($_POST)) {
 include("includes/header.php"); ?>
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Productos</h1>
-    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" id="abrirProducto"><i class="fas fa-plus fa-sm text-white-50"></i> Nuevo</a>
+    <a href="#" class="d-sm-inline-block btn btn-sm btn-primary shadow-sm" id="abrirProducto"><i class="fas fa-plus fa-sm text-white-50"></i> Nuevo</a>
 </div>
 <div class="row">
     <div class="col-md-12">
@@ -41,8 +41,8 @@ include("includes/header.php"); ?>
                         <th>Precio Rebajado</th>
                         <th>Cantidad</th>
                         <th>Categoria</th>
-                        <th></th>
-                        <th></th>
+                        <th>Eliminar</th>
+                        <th>Modificar</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -59,13 +59,12 @@ include("includes/header.php"); ?>
                             <td><?php echo $data['categoria']; ?></td>
                             <td>
                                 <form method="post" action="eliminar.php?accion=pro&id=<?php echo $data['id']; ?>" class="d-inline eliminar">
-                                    <button class="btn btn-danger" type="submit">Eliminar</button>
+                                    <button class="btn btn-danger" type="submit"><i class="far fa-trash-alt"></i></button>
                                 </form>
                             </td>
                             <td>
-                                <form method="post" action="modificar.php?accion=pro&id=<?php echo $data['id']; ?>" class="d-inline">
-                                    <button class="btn btn-warning" type="submit">Modificar</button>
-                                </form>
+                            <a href="modificar.php?id=<?php echo $data['id']?>" class="btn btn-secondary">
+                <i class="fas fa-marker"></i></a>
                             </td>
                         </tr>
                     <?php } ?>
@@ -141,4 +140,8 @@ include("includes/header.php"); ?>
         </div>
     </div>
 </div>
+
+
+
+
 <?php include("includes/footer.php"); ?>

@@ -44,14 +44,8 @@ $(document).ready(function () {
         localStorage.setItem('productos', JSON.stringify(productos));
         mostrar();
     })
-    $('#btnCarrito').click(function(e){
-        $('#btnCarrito').attr('href','carrito.php');
-    })
-    $('#btnVaciar').click(function(){
-        localStorage.removeItem("productos");
-        $('#tblCarrito').html('');
-        $('#total_pagar').text('0.00');
-    })
+    
+   
     //categoria
     $('#abrirCategoria').click(function(){
         $('#categorias').modal('show');
@@ -60,6 +54,11 @@ $(document).ready(function () {
     $('#abrirProducto').click(function () {
         $('#productos').modal('show');
     })
+    //Modificar Productos
+    $('#modificar').click(function () {
+        $('#productosmodi').modal('show');
+    })
+    
     $('.eliminar').click(function(e){
         e.preventDefault();
         if (confirm('Esta seguro de eliminar?')) {
@@ -71,8 +70,6 @@ $(document).ready(function () {
 function mostrar(){
     if (localStorage.getItem("productos") != null) {
         let array = JSON.parse(localStorage.getItem('productos'));
-        if (array) {
-            $('#carrito').text(array.length);
-        }
+        
     }
 }
