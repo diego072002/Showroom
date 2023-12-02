@@ -31,14 +31,30 @@ if (isset($_POST['update'])) {
     $fecha = date("YmdHis");
     $foto = $fecha . ".jpg";
     $destino = "../assets/img/" . $foto;
-    $query = "UPDATE productos set nombre = '$nombre', descripcion = '$descripcion',precio_normal = '$p_normal',precio_rebajado = '$p_rebajado', cantidad= '$cantidad', imagen = '$foto', id_categoria='$categoria'  WHERE id=$id";
-    mysqli_query($conexion, $query);
 
-    if ($query) {
-        if (move_uploaded_file($tmpname, $destino)) {
-            $_SESSION['message'] = 'Task Updated Successfully';
-              header('Location: productos.php');
+
+    if (!empty($_FILES['foto']['name'])) {
+        $query = "UPDATE productos set nombre = '$nombre', descripcion = '$descripcion',precio_normal = '$p_normal',precio_rebajado = '$p_rebajado', cantidad= '$cantidad', imagen = '$foto', id_categoria='$categoria'  WHERE id=$id";
+        mysqli_query($conexion, $query);
+
+        if ($query) {
+            if (move_uploaded_file($tmpname, $destino)) {
+                $_SESSION['message'] = 'Task Updated Successfully';
+                header('Location: productos.php');
+            }
         }
+    }else{
+        $query = "UPDATE productos set nombre = '$nombre', descripcion = '$descripcion',precio_normal = '$p_normal',precio_rebajado = '$p_rebajado', cantidad= '$cantidad', id_categoria='$categoria'  WHERE id=$id";
+        mysqli_query($conexion, $query);
+
+        if ($query) {
+                $_SESSION['message'] = 'Task Updated Successfully';
+                header('Location: productos.php');
+            
+
+
+
+    }
     }
 }
 
@@ -98,7 +114,7 @@ include("includes/header.php"); ?>
             <div class="form-group">
                 <label for="imagen">Foto</label>
                 <img src="../assets/img/<?php echo $imagen; ?>" alt="Imagen Actual" style="max-width: 200px; max-height: 200px;">
-                <input type="file" class="form-control" name="foto" required value="<?php echo $imagen; ?>">
+                <input type="file" class="form-control" name="foto" value="<?php echo $imagen; ?>">
             </div>
         </div>
     </div>
@@ -107,5 +123,3 @@ include("includes/header.php"); ?>
 
 
 <?php include("includes/footer.php"); ?>
-
-

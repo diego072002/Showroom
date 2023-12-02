@@ -1,14 +1,25 @@
 <?php
 require_once "../config/conexion.php";
-if (isset($_POST)) {
-    if (!empty($_POST)) {
-        $nombre = $_POST['nombre'];
-        $query = mysqli_query($conexion, "INSERT INTO categorias(categoria) VALUES ('$nombre')");
-        if ($query) {
-            header('Location: categorias.php');
+try{
+
+    if (isset($_POST)) {
+        if (!empty($_POST)) {
+            $nombre = $_POST['nombre'];
+            $query = mysqli_query($conexion, "INSERT INTO categorias(categoria) VALUES ('$nombre')");
+            if ($query) {
+                header('Location: categorias.php');
+            }
         }
     }
+
+
+
+}catch(Exception $e){
+    echo "error";
 }
+
+
+
 include("includes/header.php");
 ?>
 <div class="d-sm-flex align-items-center justify-content-between mb-4">

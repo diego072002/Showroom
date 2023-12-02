@@ -25,8 +25,7 @@ include("includes/header.php"); ?>
                     <tr>
                         <th>Nombre</th>
                         <th>Usuario</th>
-                        <th>Contraseña</th>
-                        <th></th>
+                        <th>Accion</th>
                         
                     </tr>
                 </thead>
@@ -37,7 +36,6 @@ include("includes/header.php"); ?>
                         <tr>
                             <td><?php echo $data['nombre']; ?></td>
                             <td><?php echo $data['usuario']; ?></td>
-                            <td><?php echo $data['clave']; ?></td>
                             <td>
                                 <form method="post" action="eliminar.php?accion=usu&id=<?php echo $data['id']; ?>" class="d-inline eliminar">
                                     <button class="btn btn-danger" type="submit">Eliminar</button>

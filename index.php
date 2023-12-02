@@ -9,16 +9,12 @@
     <meta name="author" content="" />
     <title>Showroom</title>
    
-    <!-- Bootstrap icons-->
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" /> -->
-    <!-- Core theme CSS (includes Bootstrap)-->
+  
     <link href="assets/css/styles.css" rel="stylesheet" />
     <link href="assets/css/estilos.css" rel="stylesheet" />
 </head>
 
 <body>
-  <!--  <a href="#" class="btn-flotante" id="btnCarrito">Carrito <span class="badge bg-success" id="carrito">0</span></a>
-     Navigation-->
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
@@ -41,7 +37,7 @@
         </nav>
     </div>
     <!-- Header-->
-    <header class="bg-dark py-5">
+    <header class="bg-primary py-5">
         <div class="container px-4 px-lg-5 my-5">
             <div class="text-center text-white">
                 <h1 class="display-4 fw-bolder">Show Room</h1>
@@ -93,7 +89,7 @@
         </div>
     </section>
     <!-- Footer-->
-    <footer class="py-5 bg-dark">
+    <footer class="py-5 bg-primary">
         <div class="container">
             <p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p>
         </div>
