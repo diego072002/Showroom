@@ -31,7 +31,7 @@ include("includes/header.php"); ?>
                 </thead>
                 <tbody>
                     <?php
-                    $query = mysqli_query($conexion, "SELECT * FROM usuarios ORDER BY id DESC");
+                    $query = mysqli_query($conexion, "SELECT * FROM usuarios WHERE nivel>1 ORDER BY id DESC");
                     while ($data = mysqli_fetch_assoc($query)) { ?>
                         <tr>
                             <td><?php echo $data['nombre']; ?></td>
