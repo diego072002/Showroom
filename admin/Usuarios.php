@@ -5,14 +5,21 @@ if (isset($_POST)) {
     if (!empty($_POST)) {
         $usuario = $_POST['usuario'];
         $nombre = $_POST['nombre'];
-        $contra = md5($_POST['contra']);
-        $query = mysqli_query($conexion, "INSERT INTO usuarios(usuario, nombre, clave) VALUES ('$usuario', '$nombre', '$contra')");
-        if ($query) {
-            header('Location: Usuarios.php');
-        }
+        $contra = $_POST['contra'];
+        $confcontra = $_POST['confirmarcontra'];
+        $nivel = 2;
+
+        if ($contra == $confcontra) {
+            $contraencrip = md5($_POST['contra']);
+            $query = mysqli_query($conexion, "INSERT INTO usuarios(usuario, nombre, clave,nivel) VALUES ('$usuario', '$nombre', '$contraencrip','$nivel')");
+            if ($query) {
+                header('Location: Usuarios.php');
+            }
+        } 
     }
 }
 include("includes/header.php"); ?>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Usuarios</h1>
     <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" id="abrirProducto"><i class="fas fa-plus fa-sm text-white-50"></i> Nuevo</a>
@@ -26,7 +33,7 @@ include("includes/header.php"); ?>
                         <th>Nombre</th>
                         <th>Usuario</th>
                         <th>Accion</th>
-                        
+
                     </tr>
                 </thead>
                 <tbody>
@@ -58,7 +65,9 @@ include("includes/header.php"); ?>
                 </button>
             </div>
             <div class="modal-body">
-                <form action="" method="POST" enctype="multipart/form-data" autocomplete="off">
+
+
+                <form action="" method="POST" enctype="multipart/form-data" autocomplete="off" onsubmit="return validarFormulario()">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
@@ -72,21 +81,41 @@ include("includes/header.php"); ?>
                                 <input id="usuario" class="form-control" type="text" name="usuario" placeholder="Ingrese el usuario" required>
                             </div>
                         </div>
-                        
-                        <div class="col-md-12">
+
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="contra">Contraseña</label>
                                 <input id="contra" class="form-control" type="password" name="contra" placeholder="Ingrese la contraseña" required>
                             </div>
                         </div>
-                      
-                        
-                        
-                    </div>
-                    <button class="btn btn-primary" type="submit">Registrar</button>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="cnfirmacontra">Confirmar contraseña</label>
+                                <input id="confirmarcontra" class="form-control" type="password" name="confirmarcontra" placeholder="Ingrese la contraseña" required>
+                                <p id="mensajeError" style="color: red;"></p>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary" type="submit">Registrar</button>
                 </form>
             </div>
         </div>
     </div>
 </div>
+<script>
+    function validarFormulario() {
+        var contra = document.getElementById('contra').value;
+        var confirmarcontra = document.getElementById('confirmarcontra').value;
+        var mensajeError = document.getElementById('mensajeError');
+
+        if (contra !== confirmarcontra) {
+            mensajeError.innerText = 'Las contraseñas no coinciden. Por favor, inténtelo de nuevo.';
+            return false; // Evita que se envíe el formulario
+        } else {
+            mensajeError.innerText = '';
+            return true; // Permite que se envíe el formulario
+        }
+    }
+</script>
 <?php include("includes/footer.php"); ?>

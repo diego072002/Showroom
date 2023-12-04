@@ -1,6 +1,6 @@
 <?php
 require_once "../config/conexion.php";
-try{
+try {
 
     if (isset($_POST)) {
         if (!empty($_POST)) {
@@ -11,11 +11,13 @@ try{
             }
         }
     }
-
-
-
-}catch(Exception $e){
-    echo "error";
+} catch (Exception $e) {
+    echo '<div style="text-align: center; padding: 20px; background-color: #ffd700; color: #000; font-size: 18px;">';
+    echo 'Esta categoría ya existe';
+    echo '</div>';
+    echo '<script>';
+    echo 'setTimeout(function() { window.location.href = "categorias.php"; }, 4000);'; // Redirige después de 3 segundos
+    echo '</script>';
 }
 
 

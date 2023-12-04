@@ -57,7 +57,7 @@
                             <div class="card h-100">
                                 <!-- Sale badge-->
                                 <div class="badge bg-danger text-white position-absolute" style="top: 0.5rem; right: 0.5rem"><?php echo ($data['precio_normal'] > $data['precio_rebajado']) ? 'Oferta' : ''; ?></div>
-                                <!-- Product image-->
+                                <!-- Product image-->   
                                 <img class="card-img-top" src="assets/img/<?php echo $data['imagen']; ?>" alt="..." />
                                 <!-- Product details-->
                                 <div class="card-body p-4">
